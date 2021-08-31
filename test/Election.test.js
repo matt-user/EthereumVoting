@@ -109,8 +109,24 @@ describe('Elections', () => {
         await election.methods.vote(0)
             .send({ from: accounts[2], gas: '3000000'});
 
-        const winner = await election.methods.pickWinner().call();
-        assert.strictEqual('biden', winner);
+        await election.methods.pickWinner().send({ from: accounts[0], gas: '3000000' });
+        const winner = await election.methods.getWinningProposal().call();
+        assert.strictEqual('biden', winner.name);
+    });
+
+    it('requires manager to call pick winner', async () => {
+        await election.methods.addProposal('biden', 'democratic candidate')
+        .send({ from: accounts[0], gas: '3000000'});
+   
+        await election.methods.vote(0)
+            .send({ from: accounts[2], gas: '3000000'});
+        
+        try {
+            await election.methods.pickWinner().send({ from: accounts[1], gas: '3000000' });
+            assert(false);
+        } catch (err) {
+            assert(err);
+        }
     });
 
     it('requires at least one proposal received a vote', async () => {
