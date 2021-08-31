@@ -65,10 +65,10 @@ contract Election {
     }
     
     /**
-     * @dev Pick winnder out of the proposals
+     * @dev Pick winner out of the proposals
      * @return the winning proposals address
     **/
-    function pickWinner() public restricted view returns (string memory) {
+    function pickWinner() public view returns (string memory) {
         uint maxCount = 0;
         uint winningIndex;
         for(uint i = 0; i < proposals.length; i++) {
