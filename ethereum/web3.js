@@ -1,6 +1,5 @@
 // Web 3 module to insert into metamask
 import Web3 from 'web3';
-require('dotenv').config();
 
 let web3;
 
@@ -11,7 +10,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
 } else {
     // We are on the server *OR* the user is not running metamask
     const provider = new Web3.providers.HttpProvider(
-        process.env.INFURA_API
+        "https://ropsten.infura.io/v3/7c548c36bf1b4e89b8fa20df7503cf5e"
     );
     web3 = new Web3(provider);
 }

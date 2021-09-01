@@ -4,7 +4,8 @@
   "description": "A voting application built with ethereum and node.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "next dev"
   },
   "author": "mattauer@umich.edu",
   "license": "ISC",
