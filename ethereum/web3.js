@@ -1,5 +1,6 @@
 // Web 3 module to insert into metamask
 import Web3 from 'web3';
+require('dotenv').config();
 
 let web3;
 
