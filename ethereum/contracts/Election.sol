@@ -30,6 +30,7 @@ contract Election {
     Proposal[] public proposals;
     Proposal private winningProposal;
     string private name;
+    uint totalVoteCount;
     
     modifier restricted() {
         require(msg.sender == manager);
@@ -39,6 +40,7 @@ contract Election {
     constructor(string memory _name, address creator) {
         manager = creator;
         name = _name;
+        totalVoteCount = 0;
     }
     
     /**
@@ -63,6 +65,7 @@ contract Election {
         Proposal storage proposal = proposals[index];
         proposal.voteCount++;
         voters[msg.sender].voted = true;
+        totalVoteCount++;
     }
     
     /**
@@ -95,11 +98,12 @@ contract Election {
     * @dev Return information about the election
     * @return number of proposals, name of elections, and address of manager
     **/
-    function getSummary() public view returns (uint,  string memory, address) {
+    function getSummary() public view returns (uint, string memory, address, uint) {
         return (
             proposals.length,
             name,
-            manager
+            manager,
+            totalVoteCount
         );
     }
     
