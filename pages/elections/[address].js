@@ -22,7 +22,8 @@ class ElectionShow extends Component {
         const {
             proposalCount,
             electionName,
-            manager
+            manager,
+            totalVoteCount
         } = this.props;
 
         const items = [
@@ -41,6 +42,11 @@ class ElectionShow extends Component {
                 header: proposalCount,
                 meta: 'Number of proposals',
                 description: 'A proposal can be voted on once by any voter.'
+            },
+            {
+                header: totalVoteCount,
+                meta: 'Total number of votes',
+                description: 'The total number of votes cast in this election'
             }
         ];
         return <Card.Group items={items} />;
@@ -52,12 +58,8 @@ class ElectionShow extends Component {
                 <h3>Election Show</h3>
                 <Grid>
                     <Grid.Row>
-                        <Grid.Column width={10}>
+                        <Grid.Column>
                             {this.renderCards()}
-                        </Grid.Column>
-
-                        <Grid.Column width={6}>
-                            
                         </Grid.Column>
                     </Grid.Row>
 
