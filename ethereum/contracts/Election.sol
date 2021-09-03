@@ -90,5 +90,17 @@ contract Election {
         require(winningProposal.voteCount != 0);
         return winningProposal;
     }
+
+    /**
+    * @dev Return information about the election
+    * @return number of proposals, name of elections, and address of manager
+    **/
+    function getSummary() public view returns (uint,  string memory, address) {
+        return (
+            proposals.length,
+            name,
+            manager
+        );
+    }
     
 }
