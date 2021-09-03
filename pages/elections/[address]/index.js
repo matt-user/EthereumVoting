@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Grid, Button } from 'semantic-ui-react';
-import Layout from '../../components/Layout';
-import Election from '../../ethereum/election';
-import web3 from '../../ethereum/web3';
+import Layout from '../../../components/Layout';
+import Election from '../../../ethereum/election';
+import web3 from '../../../ethereum/web3';
 import Link from 'next/link';
 
 class ElectionShow extends Component {
@@ -14,7 +14,8 @@ class ElectionShow extends Component {
             address: props.query.address,
             proposalCount: summary[0],
             electionName: summary[1],
-            manager: summary[2]
+            manager: summary[2],
+            totalVoteCount: summary[3]
         };
     }
 

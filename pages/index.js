@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 
 class ElectionIndex extends Component {
     static async getInitialProps() {
+        //console.log(JSON.stringify(factory, null, 4));
         const elections = await factory.methods.getDeployedElections().call();
         return { elections };
     }
