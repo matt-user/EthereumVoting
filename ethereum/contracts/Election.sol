@@ -95,6 +95,14 @@ contract Election {
     }
 
     /**
+    * @dev return the number of proposals
+    * @return the number of proposals in the election
+    **/
+    function getProposalCount() public view returns (uint) {
+        return proposals.length;
+    }
+
+    /**
     * @dev Return information about the election
     * @return number of proposals, name of elections, and address of manager
     **/
