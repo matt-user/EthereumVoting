@@ -14,7 +14,11 @@ class ElectionIndex extends Component {
         const items = this.props.elections.map(address => {
             return {
                 header: address,
-                description: <a>View Election</a>,
+                description: (
+                    <Link href={`/elections/${address}`}>
+                        <a>View Election</a>
+                    </Link>
+                ),
                 fluid: true
             };
         });
