@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "dev": "next dev"
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "next lint",
+    "heroku-postbuild": "npm run build"
   },
   "author": "mattauer@umich.edu",
   "license": "ISC",
@@ -21,5 +25,9 @@
     "solc": "*",
     "truffle-hdwallet-provider": "^1.0.17",
     "web3": "^1.5.2"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2"
   }
 }
