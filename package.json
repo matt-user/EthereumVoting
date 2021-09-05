@@ -2,6 +2,9 @@
   "name": "voting",
   "version": "1.0.0",
   "description": "A voting application built with ethereum and node.",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha",
