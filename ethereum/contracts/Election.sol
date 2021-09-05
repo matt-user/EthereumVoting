@@ -28,7 +28,6 @@ contract Election {
     address public manager;
     mapping(address => Voter) public voters;
     Proposal[] public proposals;
-    Proposal private winningProposal;
     string private name;
     uint totalVoteCount;
     
@@ -70,8 +69,9 @@ contract Election {
     
     /**
      * @dev Pick winner out of the proposals
+     * @return return the name of the winning proposal
     **/
-    function pickWinner() public restricted {
+    function pickWinner() public view returns (string memory) {
         uint maxCount = 0;
         uint winningIndex;
         for(uint i = 0; i < proposals.length; i++) {
@@ -82,16 +82,7 @@ contract Election {
         }
         // Require at least one proposal has a vote
         require(maxCount > 0);
-        winningProposal = proposals[winningIndex];
-    }
-
-    /**
-    * @dev Return information about the winner
-    * @return returns the winning proposal
-    **/
-    function getWinningProposal() public view returns(Proposal memory) {
-        require(winningProposal.voteCount != 0);
-        return winningProposal;
+        return proposals[winningIndex].name;
     }
 
     /**

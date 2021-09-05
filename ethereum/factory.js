@@ -3,6 +3,6 @@ import ElectionFactory from './build/ElectionFactory.json';
 
 const instance = new web3.eth.Contract(
     ElectionFactory.abi,
-    "0xebEB03Dd3B0fcDf369d56f093E9f44dcf2cE8090"
+    "0x9C4f78763c31c6Aad31ccD7aA32548E7529Ab6E1"
 );
 export default instance;
