@@ -103,6 +103,14 @@ contract Election {
     }
 
     /**
+    * @dev return the number of votes cast
+    * @return number of votes cast in the election
+    **/
+    function getTotalVoteCount() public view returns (uint) {
+        return totalVoteCount;
+    }
+
+    /**
     * @dev Return information about the election
     * @return number of proposals, name of elections, and address of manager
     **/

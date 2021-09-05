@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Button, Message, Input } from 'semantic-ui-react';
 import Link from 'next/link';
-import Election from '../../../ethereum/election';
-import web3 from '../../../ethereum/web3';
-import Layout from '../../../components/Layout';
+import Election from '../../../../ethereum/election';
+import web3 from '../../../../ethereum/web3';
+import Layout from '../../../../components/Layout';
 
 class ProposalNew extends Component {
     state = {
@@ -28,8 +28,8 @@ class ProposalNew extends Component {
 
         try {
             const accounts = await web3.eth.getAccounts();
-            await campaign.methods
-                .createProposal(name, description)
+            await election.methods
+                .addProposal(name, description)
                 .send({ from: accounts[0] });
         } catch (err) {
             this.setState({ errorMessage: err.message });
@@ -40,7 +40,7 @@ class ProposalNew extends Component {
     render() {
         return (
             <Layout>
-                <Link href={`/elections/${this.props.address/proposals}`}>
+                <Link href={`/elections/${this.props.address}/proposals`}>
                     <a>Back</a>
                 </Link>
                 <h3>Create a Proposal</h3>
