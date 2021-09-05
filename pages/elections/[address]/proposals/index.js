@@ -38,11 +38,9 @@ class ProposalIndex extends Component {
 
     onFinalize = async () => {
         const election = Election(this.props.address);
-        await election.methods.pickWinner().call();
-        const winner = await election.methods.getWinningProposal().call();
-        console.log(`winner: ${winner}`);
-        this.setState({ winner: winner.name });
-    }
+        const winner = await election.methods.pickWinner().call();
+        this.setState({ winner: winner });
+    };
 
     render() {
         const { Header, Row, HeaderCell, Body } = Table;

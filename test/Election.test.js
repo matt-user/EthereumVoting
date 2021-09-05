@@ -109,9 +109,8 @@ describe('Elections', () => {
         await election.methods.vote(0)
             .send({ from: accounts[2], gas: '3000000'});
 
-        await election.methods.pickWinner().send({ from: accounts[0], gas: '3000000' });
-        const winner = await election.methods.getWinningProposal().call();
-        assert.strictEqual('biden', winner.name);
+        const winner = await election.methods.pickWinner().call();
+        assert.strictEqual('biden', winner);
     });
 
     it('requires manager to call pick winner', async () => {
