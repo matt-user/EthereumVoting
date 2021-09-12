@@ -1,5 +1,6 @@
 # EthereumVoting
-A basic ethereum and node application to create elections and vote in them
+A basic ethereum and node application to create elections and vote in them.
+Currently deployed at https://ethereum-voting.herokuapp.com/
 
 Install necessary dependencies with:
 ```
